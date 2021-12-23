@@ -18,4 +18,12 @@ public class HomePage extends PageBase {
 		click(submenuBook);
 		return new ProductPage(driver);
 	}
+
+	@FindBy(id = "login_link")
+	WebElement loginRegisterBtn;
+
+	public LoginPage clickOnLoginRegisterBtn() {
+		click(loginRegisterBtn);
+		return new LoginPage(driver);
+	}
 }
