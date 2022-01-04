@@ -18,10 +18,12 @@ public class TestBase {
 
 	@BeforeMethod
 	public void setUp() {
+		// run Headless Chrome browser
 //		ChromeOptions options = new ChromeOptions();
 //		options.addArguments("headless");
 //		options.addArguments("windows-size=1200x800");
 //		driver = new ChromeDriver(options);
+
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 //		driver.manage().window().setSize(new Dimension(1920, 1000));
@@ -32,8 +34,7 @@ public class TestBase {
 	}
 
 
-
-	@AfterMethod
+	@AfterMethod(enabled = false)
 	public void tearDown() {
 		driver.quit();
 	}

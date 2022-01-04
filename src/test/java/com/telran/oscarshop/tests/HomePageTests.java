@@ -2,7 +2,6 @@ package com.telran.oscarshop.tests;
 
 import com.telran.oscarshop.pages.HomePage;
 import com.telran.oscarshop.pages.ProductPage;
-import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -14,7 +13,5 @@ public class HomePageTests extends TestBase {
 		Assert.assertTrue(new ProductPage(driver).isItProductPage());
 
 	}
-
-
 
 }

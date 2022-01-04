@@ -13,7 +13,6 @@ public class HomePage extends PageBase {
 	@FindBy(css = ".dropdown-submenu")
 	WebElement submenuBook;
 
-
 	public ProductPage selectCategory() {
 		click(submenuBook);
 		return new ProductPage(driver);
@@ -25,5 +24,13 @@ public class HomePage extends PageBase {
 	public LoginPage clickOnLoginRegisterBtn() {
 		click(loginRegisterBtn);
 		return new LoginPage(driver);
+	}
+
+	@FindBy(xpath = "//a[contains(text(),'Account')]")
+	WebElement accountBtn;
+
+	public ProfilePage clickOnAccountBtn() {
+		click(accountBtn);
+		return new ProfilePage(driver);
 	}
 }
