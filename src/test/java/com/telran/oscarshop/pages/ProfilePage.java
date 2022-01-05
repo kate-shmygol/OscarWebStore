@@ -15,4 +15,35 @@ public class ProfilePage extends PageBase {
 	public String getEmailText() {
 		return emailText.getText();
 	}
+
+	@FindBy(xpath="//a[contains(.,'Change password')]")
+	WebElement changePasswordBtn;
+
+	public ProfilePage clickOnChangePasswordBtn() {
+		click(changePasswordBtn);
+		return new ProfilePage(driver);
+	}
+
+	@FindBy(xpath="//div[@id='messages']/div/div")
+	WebElement messageText;
+
+	public String getProfileMessagesText() {
+		return messageText.getText();
+	}
+
+	@FindBy(xpath="//a[contains(.,'Edit profile')]")
+	WebElement editProfileBtn;
+
+	public ProfilePage clickOnEditProfileBtn() {
+		click(editProfileBtn);
+		return new ProfilePage(driver);
+	}
+
+	@FindBy(id="delete_profile")
+	WebElement deleteProfileBtn;
+
+	public DeleteProfilePage clickOnDeleteProfileBtn() {
+		click(deleteProfileBtn);
+		return new DeleteProfilePage(driver);
+	}
 }
