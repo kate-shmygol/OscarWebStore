@@ -33,4 +33,11 @@ public class HomePage extends PageBase {
 		click(accountBtn);
 		return new ProfilePage(driver);
 	}
+
+	@FindBy(xpath="//div[@id='messages']/div/div")
+	WebElement homeMessageText;
+
+	public String getHomeMessagesText() {
+		return homeMessageText.getText();
+	}
 }
