@@ -31,10 +31,6 @@ public class PageBase {
 		}
 	}
 
-	public void closeBanner() {
-		driver.findElement(By.id("close-fixedban")).click();
-	}
-
 	public void clickWithAction(WebElement element) {
 		Actions actions = new Actions(driver);
 		actions.sendKeys(Keys.PAGE_UP).build().perform();

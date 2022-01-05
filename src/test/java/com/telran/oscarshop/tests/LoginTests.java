@@ -31,11 +31,15 @@ public class LoginTests extends TestBase {
 	@Test(dataProvider = "UserValidFromCSV", dataProviderClass = DataProviders.class)
 	public void loginPositiveTestFromCSV(String email, String password) {
 		new LoginPage(driver).login(email, password);
+		new HomePage(driver).clickOnAccountBtn();
 		Assert.assertTrue(new ProfilePage(driver)
 				.getEmailText()
 				.contains(email));
 	}
 
+	// Negative Test
+//	Oops! We found some errors - please check the error messages below and try again
+//	Please enter a correct username and password. Note that both fields may be case-sensitive.
 	@Test(dataProvider = "UserInvalidFromCSV", dataProviderClass = DataProviders.class)
 	public void loginNegativeTestFromCSV(String email, String password) {
 		new LoginPage(driver).login(email, password);
