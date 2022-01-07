@@ -12,7 +12,4 @@ public class HomePageTests extends TestBase {
 		new HomePage(driver).selectCategoryBook();
 		Assert.assertTrue(new ProductPage(driver).isItProductPage());
 	}
-
-
-
 }
