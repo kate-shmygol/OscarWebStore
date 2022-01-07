@@ -13,7 +13,7 @@ public class HomePage extends PageBase {
 	@FindBy(css = ".dropdown-submenu")
 	WebElement submenuBook;
 
-	public ProductPage selectCategory() {
+	public ProductPage selectCategoryBook() {
 		click(submenuBook);
 		return new ProductPage(driver);
 	}
@@ -39,5 +39,47 @@ public class HomePage extends PageBase {
 
 	public String getHomeMessagesText() {
 		return homeMessageText.getText();
+	}
+
+	@FindBy(id = "id_q")
+	WebElement searchField;
+
+	@FindBy(xpath = "//*[@id='default']/header/div[2]/div/div[2]/form/input")
+	WebElement searchBtn;
+
+	public HomePage typeInSearchField(String text) {
+		type(searchField, text);
+		click(searchBtn);
+		return new HomePage(driver);
+	}
+
+	@FindBy(xpath="//*[@id='default']/div[2]/div/div/div/div[1]/h1")
+	WebElement searchMessageText;
+
+	public String getSearchMessagesText() {
+		return searchMessageText.getText();
+	}
+
+	@FindBy(xpath = "//*[@id='browse']/li/ul/li[1]/a")
+	WebElement submenuAllProducts;
+
+	public ProductPage selectAllProducts() {
+		click(submenuAllProducts);
+		return new ProductPage(driver);
+	}
+
+	@FindBy(xpath = "//*[@id='promotions']/section[1]/div/h2")
+	WebElement homePageTitle;
+
+	public boolean isItHomePage() {
+		return homePageTitle.isDisplayed();
+	}
+
+	@FindBy(xpath = "//*[@id='default']/header/div[1]/div/div[1]/a")
+	WebElement mainLink;
+
+	public HomePage clickOnMainLink() {
+		click(mainLink);
+		return new HomePage(driver);
 	}
 }

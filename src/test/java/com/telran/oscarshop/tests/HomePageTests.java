@@ -9,9 +9,10 @@ public class HomePageTests extends TestBase {
 
 	@Test
 	public void guestCanSelectProductFromMenuTest() {
-		new HomePage(driver).selectCategory();
+		new HomePage(driver).selectCategoryBook();
 		Assert.assertTrue(new ProductPage(driver).isItProductPage());
-
 	}
+
+
 
 }
