@@ -4,15 +4,11 @@ import com.telran.oscarshop.fw.DataProviders;
 import com.telran.oscarshop.pages.HomePage;
 import com.telran.oscarshop.pages.LoginPage;
 import com.telran.oscarshop.pages.ProfilePage;
-import com.telran.oscarshop.utils.PropertiesLoader;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class LoginTests extends TestBase {
-
-	public static String email = PropertiesLoader.loadProperty("valid.email");
-	public static String password = PropertiesLoader.loadProperty("valid.password");
 
 	@BeforeMethod
 	public void ensurePreconditions() {

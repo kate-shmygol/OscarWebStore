@@ -15,6 +15,8 @@ public class TestBase {
 	WebDriver driver;
 
 	public static String baseURL = PropertiesLoader.loadProperty("url");
+	public static String email = PropertiesLoader.loadProperty("valid.email");
+	public static String password = PropertiesLoader.loadProperty("valid.password");
 
 	@BeforeMethod
 	public void setUp() {
