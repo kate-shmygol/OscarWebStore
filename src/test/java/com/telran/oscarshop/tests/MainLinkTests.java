@@ -10,7 +10,7 @@ public class MainLinkTests extends TestBase {
 
 	@BeforeMethod
 	public void ensurePreconditions() {
-		new HomePage(driver).selectAllProducts();
+		new HomePage(driver).selectCategoryAllProducts();
 		Assert.assertTrue(new ProductPage(driver).isItProductPage());
 	}
 

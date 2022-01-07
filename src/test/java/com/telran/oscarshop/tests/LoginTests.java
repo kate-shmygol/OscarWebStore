@@ -39,6 +39,10 @@ public class LoginTests extends TestBase {
 	@Test(dataProvider = "UserInvalidFromCSV", dataProviderClass = DataProviders.class)
 	public void loginNegativeTestFromCSV(String email, String password) {
 		new LoginPage(driver).login(email, password);
+	}
 
+	@Test
+	public void isItLoginAndRegisterPageTest() {
+		Assert.assertTrue(new HomePage(driver).isItLoginAndRegisterPage());
 	}
 }

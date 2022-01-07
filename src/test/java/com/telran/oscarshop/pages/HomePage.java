@@ -63,9 +63,9 @@ public class HomePage extends PageBase {
 	@FindBy(xpath = "//*[@id='browse']/li/ul/li[1]/a")
 	WebElement submenuAllProducts;
 
-	public ProductPage selectAllProducts() {
+	public HomePage selectCategoryAllProducts() {
 		click(submenuAllProducts);
-		return new ProductPage(driver);
+		return new HomePage(driver);
 	}
 
 	@FindBy(xpath = "//*[@id='promotions']/section[1]/div/h2")
@@ -80,6 +80,37 @@ public class HomePage extends PageBase {
 
 	public HomePage clickOnMainLink() {
 		click(mainLink);
+		return new HomePage(driver);
+	}
+
+	@FindBy(id = "login_form")
+	WebElement loginPageTitle;
+
+	public boolean isItLoginAndRegisterPage() {
+		return loginPageTitle.isDisplayed();
+	}
+
+	@FindBy(xpath = "//*[@id='default']/header/div[1]/div/div[2]/span/a")
+	WebElement viewBasketBtn;
+
+	public HomePage clickOnViewBasket() {
+		click(viewBasketBtn);
+		return new HomePage(driver);
+	}
+
+	@FindBy(xpath = "//*[@id='browse']/li/ul/li[3]/a")
+	WebElement submenuClothing;
+
+	public HomePage selectCategoryClothing() {
+		click(submenuClothing);
+		return new HomePage(driver);
+	}
+
+	@FindBy(xpath = "//*[@id='browse']/li/ul/li[6]/a")
+	WebElement submenuOffers;
+
+	public HomePage selectCategoryOffers() {
+		click(submenuOffers);
 		return new HomePage(driver);
 	}
 }
