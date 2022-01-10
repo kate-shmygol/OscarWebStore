@@ -1,17 +1,14 @@
 package com.telran.oscarshop.tests;
 
-import com.telran.oscarshop.pages.*;
-import com.telran.oscarshop.utils.PropertiesLoader;
+import com.telran.oscarshop.pages.EditProfilePage;
+import com.telran.oscarshop.pages.HomePage;
+import com.telran.oscarshop.pages.LoginPage;
+import com.telran.oscarshop.pages.ProfilePage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class EditProfileTests extends TestBase{
-
-	public static String email = PropertiesLoader.loadProperty("valid.email");
-	public static String password = PropertiesLoader.loadProperty("valid.password");
-	public static String firstName = PropertiesLoader.loadProperty("first.name");
-	public static String lastName = PropertiesLoader.loadProperty("last.name");
 
 	@BeforeMethod
 	public void ensurePreconditions() {
