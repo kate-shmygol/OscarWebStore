@@ -1,7 +1,7 @@
-package com.telran.oscarshop.tests;
+package com.telran.oscarshop.tests.homePageTests;
 
 import com.telran.oscarshop.pages.BasketPage;
-import com.telran.oscarshop.pages.HomePage;
+import com.telran.oscarshop.tests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -10,7 +10,7 @@ public class BasketTests extends TestBase {
 
 	@BeforeMethod
 	public void ensurePreconditions() {
-		new HomePage(driver).clickOnViewBasket();
+		new BasketPage(driver).clickOnViewBasket();
 	}
 
 	@Test

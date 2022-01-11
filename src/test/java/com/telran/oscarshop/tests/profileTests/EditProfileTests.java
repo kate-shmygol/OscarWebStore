@@ -1,14 +1,15 @@
-package com.telran.oscarshop.tests;
+package com.telran.oscarshop.tests.profileTests;
 
-import com.telran.oscarshop.pages.EditProfilePage;
+import com.telran.oscarshop.pages.profilePages.EditProfilePage;
 import com.telran.oscarshop.pages.HomePage;
-import com.telran.oscarshop.pages.LoginPage;
-import com.telran.oscarshop.pages.ProfilePage;
+import com.telran.oscarshop.pages.userPages.LoginPage;
+import com.telran.oscarshop.pages.profilePages.ProfilePage;
+import com.telran.oscarshop.tests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class EditProfileTests extends TestBase{
+public class EditProfileTests extends TestBase {
 
 	@BeforeMethod
 	public void ensurePreconditions() {

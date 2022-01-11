@@ -1,7 +1,8 @@
-package com.telran.oscarshop.tests;
+package com.telran.oscarshop.tests.homePageTests;
 
 import com.telran.oscarshop.pages.HomePage;
 import com.telran.oscarshop.pages.ProductPage;
+import com.telran.oscarshop.tests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
