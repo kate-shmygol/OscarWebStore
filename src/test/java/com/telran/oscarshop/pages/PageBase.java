@@ -6,7 +6,11 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 
+import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -102,4 +106,19 @@ public class PageBase {
 			e.printStackTrace();
 		}
 	}
+
+	public Screenshot takeTotalScreenshot() {
+		Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies
+				.viewportPasting(ShootingStrategies.scaling(1.0f), 1000))
+				.takeScreenshot(driver);
+
+		try {
+			ImageIO.write(screenshot.getImage(), "png",
+					new File("screenshot/screen-" + System.currentTimeMillis() + ".png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return screenshot;
+	}
+
 }

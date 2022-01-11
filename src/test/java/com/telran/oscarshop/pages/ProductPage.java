@@ -1,5 +1,6 @@
 package com.telran.oscarshop.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,8 +20,9 @@ public class ProductPage extends PageBase {
 	@FindBy(xpath = "//*[@id='default']/div[2]/div/div/div/section/div/ol/li[1]/article/div[2]/form/button")
 	WebElement addToBasket1stBookBtn;
 
-	public ProductPage add1BookToBasket() {
-		click(addToBasket1stBookBtn);
+	public ProductPage add1BookToBasket(int number) {
+//		click(addToBasket1stBookBtn);
+		driver.findElement(By.cssSelector(".col-xs-6:nth-child(" + number + ") .btn")).click();
 		return new ProductPage(driver);
 	}
 

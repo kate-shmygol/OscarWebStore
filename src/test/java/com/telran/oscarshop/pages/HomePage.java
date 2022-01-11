@@ -1,5 +1,7 @@
 package com.telran.oscarshop.pages;
 
+import com.telran.oscarshop.pages.profilePages.ProfilePage;
+import com.telran.oscarshop.pages.userPages.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -90,13 +92,7 @@ public class HomePage extends PageBase {
 		return loginPageTitle.isDisplayed();
 	}
 
-	@FindBy(xpath = "//*[@id='default']/header/div[1]/div/div[2]/span/a")
-	WebElement viewBasketBtn;
 
-	public HomePage clickOnViewBasket() {
-		click(viewBasketBtn);
-		return new HomePage(driver);
-	}
 
 	@FindBy(xpath = "//*[@id='browse']/li/ul/li[3]/a")
 	WebElement submenuClothing;
