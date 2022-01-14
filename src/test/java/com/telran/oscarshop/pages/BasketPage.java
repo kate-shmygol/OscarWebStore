@@ -25,13 +25,10 @@ public class BasketPage extends PageBase {
 		return productName.getText();
 	}
 
-	@FindBy(xpath = "//*[@id='basket_formset']/div")
-	WebElement product;
-
 	public int getQuantityOfProductsInBasket() {
 		int quantityOfProducts = driver.findElements(By.xpath("//*[@id='basket_formset']/div")).size();
 		System.out.println(quantityOfProducts);
-		Assert.assertEquals("2", quantityOfProducts);
+		Assert.assertEquals(2, quantityOfProducts);
 		return quantityOfProducts;
 	}
 
@@ -46,31 +43,70 @@ public class BasketPage extends PageBase {
 	@FindBy(css = ".basket-items:nth-child(6) :nth-child(4)")
 	WebElement priceForOne;
 
-	public double getPriceForOneBook() {
+	public double getPriceForFirstItem() {
 		double number1 = Double.parseDouble(priceForOne.getText()
 				.replace("£", ""));
 		return number1;
 	}
 
 	@FindBy(id = "id_form-0-quantity")
-	WebElement quantity;
+	WebElement quantityForFirstItem;
 
-	@FindBy(css = ".input-group-btn")
-	WebElement updateQuantity;
+	@FindBy(css = ".basket-items:nth-child(6) .btn")
+	WebElement updateQuantityForFirstItem;
 
-
-	public BasketPage fillQuantityField(String n) {
-		type(quantity, n);
-		click(updateQuantity);
-		return null;
+	public BasketPage fillQuantityFieldForFirstItem(String n) {
+		type(quantityForFirstItem, n);
+		click(updateQuantityForFirstItem);
+		return this;
 	}
 
 	@FindBy(css = ".basket-items:nth-child(6) :nth-child(5)")
-	WebElement totalPrice;
+	WebElement totalPriceForFirstItem;
 
-	public double getTotalPriceItem() {
-		double number2 = Double.parseDouble(totalPrice.getText()
+	public double getTotalPriceForFirstItem() {
+		double number2 = Double.parseDouble(totalPriceForFirstItem.getText()
 				.replace("£", ""));
 		return number2;
 	}
+
+	@FindBy(css = ".basket-items:nth-child(7) :nth-child(4)")
+	WebElement priceForTwo;
+
+	public double getPriceForSecondItem() {
+		double number3 = Double.parseDouble(priceForTwo.getText()
+				.replace("£", ""));
+		return number3;
+	}
+
+	@FindBy(id = "id_form-1-quantity")
+	WebElement quantityForSecondItem;
+
+	@FindBy(css = ".basket-items:nth-child(7) .btn")
+	WebElement updateQuantityForSecondItem;
+
+	public BasketPage fillQuantityFieldForSecondItem(String n) {
+		type(quantityForSecondItem, n);
+		click(updateQuantityForSecondItem);
+		return this;
+	}
+
+	@FindBy(css = ".basket-items:nth-child(7) :nth-child(5)")
+	WebElement totalPriceForSecondItem;
+
+	public double getTotalPriceForSecondItem() {
+		double number4 = Double.parseDouble(totalPriceForSecondItem.getText()
+				.replace("£", ""));
+		return number4;
+	}
+
+	@FindBy(css = ".total > .price_color")
+	WebElement totalPriceForTwoItems;
+
+	public double getTotalPriceForTwoItems() {
+		double number5 = Double.parseDouble(totalPriceForTwoItems.getText()
+				.replace("£", ""));
+		return number5;
+	}
+
 }

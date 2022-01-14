@@ -18,19 +18,19 @@ public class BasketPageTests extends TestBase {
 		new ProductPage(driver).add1BookToBasket(1);
 		new BasketPage(driver).clickOnViewBasket();
 
-		double priceForOne;
+		double priceForFirstItem;
 
-		priceForOne = new BasketPage(driver).getPriceForOneBook();
-		System.out.println(priceForOne);
+		priceForFirstItem = new BasketPage(driver).getPriceForFirstItem();
+		System.out.println(priceForFirstItem);
 
-		new BasketPage(driver).fillQuantityField("4");
+		new BasketPage(driver).fillQuantityFieldForFirstItem("4");
 
-		double totalPriceItem;
+		double totalPriceForFirstItem;
 
-		totalPriceItem = new BasketPage(driver).getTotalPriceItem();
-		System.out.println(totalPriceItem);
+		totalPriceForFirstItem = new BasketPage(driver).getTotalPriceForFirstItem();
+		System.out.println(totalPriceForFirstItem);
 
-		Assert.assertEquals(totalPriceItem, priceForOne*4);
+		Assert.assertEquals(totalPriceForFirstItem, priceForFirstItem * 4);
 		new BasketPage(driver).takeTotalScreenshot();
 	}
 }
