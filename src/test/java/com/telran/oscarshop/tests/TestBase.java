@@ -21,6 +21,10 @@ public class TestBase {
 	public static String firstName = PropertiesLoader.loadProperty("first.name");
 	public static String lastName = PropertiesLoader.loadProperty("last.name");
 	public static String bookName = PropertiesLoader.loadProperty("book.name");
+	public static String firstLineAddress = PropertiesLoader.loadProperty("first.line.address");
+	public static String city = PropertiesLoader.loadProperty("city");
+	public static String postcode = PropertiesLoader.loadProperty("postcode");
+	public static String country1 = PropertiesLoader.loadProperty("country1");
 
 	@BeforeMethod
 	public void setUp() {

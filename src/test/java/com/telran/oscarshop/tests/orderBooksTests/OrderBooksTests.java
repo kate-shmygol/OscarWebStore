@@ -3,6 +3,7 @@ package com.telran.oscarshop.tests.orderBooksTests;
 import com.telran.oscarshop.pages.BasketPage;
 import com.telran.oscarshop.pages.HomePage;
 import com.telran.oscarshop.pages.ProductPage;
+import com.telran.oscarshop.pages.ShippingAddressPage;
 import com.telran.oscarshop.pages.userPages.LoginPage;
 import com.telran.oscarshop.tests.TestBase;
 import org.testng.Assert;
@@ -91,6 +92,22 @@ public class OrderBooksTests extends TestBase {
 
 		Assert.assertEquals(totalPriceForTwoItems, totalPriceForFirstItem + totalPriceForSecondItem);
 		new BasketPage(driver).takeTotalScreenshot();
+	}
+
+	@Test
+	public void orderOneBookTest() {
+		new ProductPage(driver).add1BookToBasket(1);
+		new BasketPage(driver).clickOnViewBasket();
+		new BasketPage(driver).clickOnProceedToCheckout();
+		Assert.assertTrue(new ShippingAddressPage(driver).isItShippingAddressPage());
+
+		new ShippingAddressPage(driver)
+				.typeFirstAndLastNames(firstName, lastName)
+				.typeFirstLineOfAddress(firstLineAddress)
+				.typeCity(city)
+				.typePostcode(postcode)
+				.selectCountry(country1)
+				.clickOnContinueButton();
 	}
 
 }

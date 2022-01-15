@@ -109,4 +109,12 @@ public class BasketPage extends PageBase {
 		return number5;
 	}
 
+	@FindBy(xpath = "//a[contains(.,'Proceed to checkout')]")
+	WebElement proceedToCheckoutBtn;
+
+	public BasketPage clickOnProceedToCheckout() {
+		click(proceedToCheckoutBtn);
+		return new BasketPage(driver);
+	}
+
 }
