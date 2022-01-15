@@ -17,6 +17,7 @@ public class TestBase {
 	public static String baseURL = PropertiesLoader.loadProperty("url");
 	public static String email = PropertiesLoader.loadProperty("valid.email");
 	public static String password = PropertiesLoader.loadProperty("valid.password");
+	public static String newPassword = PropertiesLoader.loadProperty("valid.newPassword");
 	public static String firstName = PropertiesLoader.loadProperty("first.name");
 	public static String lastName = PropertiesLoader.loadProperty("last.name");
 	public static String bookName = PropertiesLoader.loadProperty("book.name");
