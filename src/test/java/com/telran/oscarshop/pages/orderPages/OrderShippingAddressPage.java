@@ -1,13 +1,13 @@
-package com.telran.oscarshop.pages;
+package com.telran.oscarshop.pages.orderPages;
 
+import com.telran.oscarshop.pages.PageBase;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
 
-public class ShippingAddressPage extends PageBase {
-	public ShippingAddressPage(WebDriver driver) {
+public class OrderShippingAddressPage extends PageBase {
+	public OrderShippingAddressPage(WebDriver driver) {
 		super(driver);
 	}
 
@@ -24,7 +24,7 @@ public class ShippingAddressPage extends PageBase {
 	@FindBy(id = "id_last_name")
 	WebElement lastNameField;
 
-	public ShippingAddressPage typeFirstAndLastNames(String firstName, String lastName) {
+	public OrderShippingAddressPage typeFirstAndLastNames(String firstName, String lastName) {
 		type(firstNameField, firstName);
 		type(lastNameField, lastName);
 		return this;
@@ -33,7 +33,7 @@ public class ShippingAddressPage extends PageBase {
 	@FindBy(id = "id_line1")
 	WebElement firstLineOfAddressField;
 
-	public ShippingAddressPage typeFirstLineOfAddress(String firstLineOfAddress) {
+	public OrderShippingAddressPage typeFirstLineOfAddress(String firstLineOfAddress) {
 		type(firstLineOfAddressField, firstLineOfAddress);
 		return this;
 	}
@@ -41,7 +41,7 @@ public class ShippingAddressPage extends PageBase {
 	@FindBy(id = "id_line4")
 	WebElement cityField;
 
-	public ShippingAddressPage typeCity(String city) {
+	public OrderShippingAddressPage typeCity(String city) {
 		type(cityField, city);
 		return this;
 	}
@@ -49,7 +49,7 @@ public class ShippingAddressPage extends PageBase {
 	@FindBy(id = "id_postcode")
 	WebElement postcodeField;
 
-	public ShippingAddressPage typePostcode(String postcode) {
+	public OrderShippingAddressPage typePostcode(String postcode) {
 		type(postcodeField, postcode);
 		return this;
 	}
@@ -57,7 +57,7 @@ public class ShippingAddressPage extends PageBase {
 	@FindBy(id = "id_country")
 	WebElement countryField;
 
-	public ShippingAddressPage selectCountry(String country) {
+	public OrderShippingAddressPage selectCountry(String country) {
 //		Select selectCountry = new Select(countryField);
 //		selectCountry.selectByVisibleText(country);
 		click(countryField);
@@ -69,8 +69,8 @@ public class ShippingAddressPage extends PageBase {
 	@FindBy(xpath = "//button[@type='submit']")
 	WebElement continueBtn;
 
-	public ShippingAddressPage clickOnContinueButton() {
+	public OrderShippingAddressPage clickOnContinueButton() {
 		click(continueBtn);
-		return new ShippingAddressPage(driver);
+		return new OrderShippingAddressPage(driver);
 	}
 }

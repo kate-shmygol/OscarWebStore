@@ -3,7 +3,7 @@ package com.telran.oscarshop.tests.orderBooksTests;
 import com.telran.oscarshop.pages.BasketPage;
 import com.telran.oscarshop.pages.HomePage;
 import com.telran.oscarshop.pages.ProductPage;
-import com.telran.oscarshop.pages.ShippingAddressPage;
+import com.telran.oscarshop.pages.orderPages.*;
 import com.telran.oscarshop.pages.userPages.LoginPage;
 import com.telran.oscarshop.tests.TestBase;
 import org.testng.Assert;
@@ -98,16 +98,45 @@ public class OrderBooksTests extends TestBase {
 	public void orderOneBookTest() {
 		new ProductPage(driver).add1BookToBasket(1);
 		new BasketPage(driver).clickOnViewBasket();
-		new BasketPage(driver).clickOnProceedToCheckout();
-		Assert.assertTrue(new ShippingAddressPage(driver).isItShippingAddressPage());
 
-		new ShippingAddressPage(driver)
+		double priceForFirstItem;
+
+		priceForFirstItem = new BasketPage(driver).getPriceForFirstItem();
+		System.out.println("Price for first item: " + priceForFirstItem);
+
+		new BasketPage(driver).fillQuantityFieldForFirstItem("1");
+
+		double totalPriceForFirstItem;
+
+		totalPriceForFirstItem = new BasketPage(driver).getTotalPriceForFirstItem();
+		System.out.println("Total price for first item: " + totalPriceForFirstItem);
+
+		Assert.assertEquals(totalPriceForFirstItem, priceForFirstItem * 1);
+
+		new BasketPage(driver).clickOnProceedToCheckout();
+		Assert.assertTrue(new OrderShippingAddressPage(driver).isItShippingAddressPage());
+
+		new OrderShippingAddressPage(driver)
 				.typeFirstAndLastNames(firstName, lastName)
 				.typeFirstLineOfAddress(firstLineAddress)
 				.typeCity(city)
 				.typePostcode(postcode)
 				.selectCountry(country1)
 				.clickOnContinueButton();
+
+		new OrderPaymentPage(driver).clickOnContinueButton();
+		new OrderPreviewPage(driver).clickOnPlaceOrderButton();
+		new OrderConfirmationPage(driver).clickOnContinueShoppingButton();
+
+		new HomePage(driver).clickOnAccountBtn();
+		new OrderHistoryPage(driver).clickOnOrderHistoryButton();
+
+		double totalPriceForFirstOrderedItem;
+
+		totalPriceForFirstOrderedItem = new OrderHistoryPage(driver).getTotalPriceForFirstOrderedItem();
+		System.out.println("Total price for first ordered item: " + totalPriceForFirstOrderedItem);
+
+		Assert.assertEquals(totalPriceForFirstItem, totalPriceForFirstOrderedItem);
 	}
 
 }
