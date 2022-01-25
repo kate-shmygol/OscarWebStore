@@ -17,7 +17,7 @@ public class ProductPage extends PageBase {
 		return pageTitle.isDisplayed();
 	}
 
-	@FindBy(xpath = "//*[@id='default']/div[2]/div/div/div/section/div/ol/li[1]/article/div[2]/form/button")
+	@FindBy(css = ".col-xs-6:nth-child(1) .btn")
 	WebElement addToBasket1stBookBtn;
 
 	public ProductPage add1BookToBasket(int number) {
@@ -26,7 +26,7 @@ public class ProductPage extends PageBase {
 		return new ProductPage(driver);
 	}
 
-	@FindBy(xpath = "//*[@id='default']/div[2]/div/div/div/section/div/ol/li[2]/article/div[2]/form/button")
+	@FindBy(css = ".col-xs-6:nth-child(2) .btn")
 	WebElement addToBasket2ndBookBtn;
 
 	public ProductPage add2BooksToBasket() {
