@@ -31,4 +31,5 @@ public class RegistrationPage extends PageBase {
 		click(registrationBtn);
 		return new HomePage(driver);
 	}
+
 }

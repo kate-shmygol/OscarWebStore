@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends PageBase {
+
 	public LoginPage(WebDriver driver) {
 		super(driver);
 	}
@@ -26,4 +27,5 @@ public class LoginPage extends PageBase {
 		click(loginBtn);
 		return new HomePage(driver);
 	}
+
 }

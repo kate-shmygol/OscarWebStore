@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class OrderPaymentPage extends PageBase {
+
 	public OrderPaymentPage(WebDriver driver) {
 		super(driver);
 	}

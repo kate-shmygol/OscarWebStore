@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
 public class BasketPage extends PageBase {
+
 	public BasketPage(WebDriver driver) {
 		super(driver);
 	}
@@ -14,12 +15,45 @@ public class BasketPage extends PageBase {
 	@FindBy(css = ".page-header.action")
 	WebElement basketTitle;
 
+	@FindBy(xpath = "//*[@id='basket_formset']/div/div/div[2]/h3/a")
+	WebElement productName;
+
+	@FindBy(xpath = "//*[@id='default']/header/div[1]/div/div[2]/span/a")
+	WebElement viewBasketBtn;
+
+	@FindBy(css = ".basket-items:nth-child(6) :nth-child(4)")
+	WebElement priceForOne;
+
+	@FindBy(id = "id_form-0-quantity")
+	WebElement quantityForFirstItem;
+
+	@FindBy(css = ".basket-items:nth-child(6) .btn")
+	WebElement updateQuantityForFirstItem;
+
+	@FindBy(css = ".basket-items:nth-child(6) :nth-child(5)")
+	WebElement totalPriceForFirstItem;
+
+	@FindBy(css = ".basket-items:nth-child(7) :nth-child(4)")
+	WebElement priceForTwo;
+
+	@FindBy(id = "id_form-1-quantity")
+	WebElement quantityForSecondItem;
+
+	@FindBy(css = ".basket-items:nth-child(7) .btn")
+	WebElement updateQuantityForSecondItem;
+
+	@FindBy(css = ".basket-items:nth-child(7) :nth-child(5)")
+	WebElement totalPriceForSecondItem;
+
+	@FindBy(css = ".total > .price_color")
+	WebElement totalPriceForTwoItems;
+
+	@FindBy(xpath = "//a[contains(.,'Proceed to checkout')]")
+	WebElement proceedToCheckoutBtn;
+
 	public boolean isItBasketPage() {
 		return basketTitle.isDisplayed();
 	}
-
-	@FindBy(xpath = "//*[@id='basket_formset']/div/div/div[2]/h3/a")
-	WebElement productName;
 
 	public String takeNameOfProduct() {
 		return productName.getText();
@@ -32,16 +66,10 @@ public class BasketPage extends PageBase {
 		return quantityOfProducts;
 	}
 
-	@FindBy(xpath = "//*[@id='default']/header/div[1]/div/div[2]/span/a")
-	WebElement viewBasketBtn;
-
 	public HomePage clickOnViewBasket() {
 		click(viewBasketBtn);
 		return new HomePage(driver);
 	}
-
-	@FindBy(css = ".basket-items:nth-child(6) :nth-child(4)")
-	WebElement priceForOne;
 
 	public double getPriceForFirstItem() {
 		double number1 = Double.parseDouble(priceForOne.getText()
@@ -49,20 +77,11 @@ public class BasketPage extends PageBase {
 		return number1;
 	}
 
-	@FindBy(id = "id_form-0-quantity")
-	WebElement quantityForFirstItem;
-
-	@FindBy(css = ".basket-items:nth-child(6) .btn")
-	WebElement updateQuantityForFirstItem;
-
 	public BasketPage fillQuantityFieldForFirstItem(String n) {
 		type(quantityForFirstItem, n);
 		click(updateQuantityForFirstItem);
 		return this;
 	}
-
-	@FindBy(css = ".basket-items:nth-child(6) :nth-child(5)")
-	WebElement totalPriceForFirstItem;
 
 	public double getTotalPriceForFirstItem() {
 		double number2 = Double.parseDouble(totalPriceForFirstItem.getText()
@@ -70,20 +89,11 @@ public class BasketPage extends PageBase {
 		return number2;
 	}
 
-	@FindBy(css = ".basket-items:nth-child(7) :nth-child(4)")
-	WebElement priceForTwo;
-
 	public double getPriceForSecondItem() {
 		double number3 = Double.parseDouble(priceForTwo.getText()
 				.replace("£", ""));
 		return number3;
 	}
-
-	@FindBy(id = "id_form-1-quantity")
-	WebElement quantityForSecondItem;
-
-	@FindBy(css = ".basket-items:nth-child(7) .btn")
-	WebElement updateQuantityForSecondItem;
 
 	public BasketPage fillQuantityFieldForSecondItem(String n) {
 		type(quantityForSecondItem, n);
@@ -91,26 +101,17 @@ public class BasketPage extends PageBase {
 		return this;
 	}
 
-	@FindBy(css = ".basket-items:nth-child(7) :nth-child(5)")
-	WebElement totalPriceForSecondItem;
-
 	public double getTotalPriceForSecondItem() {
 		double number4 = Double.parseDouble(totalPriceForSecondItem.getText()
 				.replace("£", ""));
 		return number4;
 	}
 
-	@FindBy(css = ".total > .price_color")
-	WebElement totalPriceForTwoItems;
-
 	public double getTotalPriceForTwoItems() {
 		double number5 = Double.parseDouble(totalPriceForTwoItems.getText()
 				.replace("£", ""));
 		return number5;
 	}
-
-	@FindBy(xpath = "//a[contains(.,'Proceed to checkout')]")
-	WebElement proceedToCheckoutBtn;
 
 	public BasketPage clickOnProceedToCheckout() {
 		click(proceedToCheckoutBtn);

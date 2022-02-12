@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class OrderShippingAddressPage extends PageBase {
+
 	public OrderShippingAddressPage(WebDriver driver) {
 		super(driver);
 	}
@@ -14,15 +15,30 @@ public class OrderShippingAddressPage extends PageBase {
 	@FindBy(xpath = "//h1[contains(.,'Shipping address')]")
 	WebElement shippingAddressTitle;
 
-	public boolean isItShippingAddressPage() {
-		return shippingAddressTitle.isDisplayed();
-	}
-
 	@FindBy(id = "id_first_name")
 	WebElement firstNameField;
 
 	@FindBy(id = "id_last_name")
 	WebElement lastNameField;
+
+	@FindBy(id = "id_line1")
+	WebElement firstLineOfAddressField;
+
+	@FindBy(id = "id_line4")
+	WebElement cityField;
+
+	@FindBy(id = "id_postcode")
+	WebElement postcodeField;
+
+	@FindBy(id = "id_country")
+	WebElement countryField;
+
+	@FindBy(xpath = "//button[@type='submit']")
+	WebElement continueBtn;
+
+	public boolean isItShippingAddressPage() {
+		return shippingAddressTitle.isDisplayed();
+	}
 
 	public OrderShippingAddressPage typeFirstAndLastNames(String firstName, String lastName) {
 		type(firstNameField, firstName);
@@ -30,32 +46,20 @@ public class OrderShippingAddressPage extends PageBase {
 		return this;
 	}
 
-	@FindBy(id = "id_line1")
-	WebElement firstLineOfAddressField;
-
 	public OrderShippingAddressPage typeFirstLineOfAddress(String firstLineOfAddress) {
 		type(firstLineOfAddressField, firstLineOfAddress);
 		return this;
 	}
-
-	@FindBy(id = "id_line4")
-	WebElement cityField;
 
 	public OrderShippingAddressPage typeCity(String city) {
 		type(cityField, city);
 		return this;
 	}
 
-	@FindBy(id = "id_postcode")
-	WebElement postcodeField;
-
 	public OrderShippingAddressPage typePostcode(String postcode) {
 		type(postcodeField, postcode);
 		return this;
 	}
-
-	@FindBy(id = "id_country")
-	WebElement countryField;
 
 	public OrderShippingAddressPage selectCountry(String country) {
 //		Select selectCountry = new Select(countryField);
@@ -66,11 +70,9 @@ public class OrderShippingAddressPage extends PageBase {
 		return this;
 	}
 
-	@FindBy(xpath = "//button[@type='submit']")
-	WebElement continueBtn;
-
 	public OrderShippingAddressPage clickOnContinueButton() {
 		click(continueBtn);
 		return new OrderShippingAddressPage(driver);
 	}
+
 }

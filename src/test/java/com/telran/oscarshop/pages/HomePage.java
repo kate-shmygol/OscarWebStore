@@ -15,33 +15,14 @@ public class HomePage extends PageBase {
 	@FindBy(css = ".dropdown-submenu")
 	WebElement submenuBook;
 
-	public ProductPage selectCategoryBook() {
-		click(submenuBook);
-		return new ProductPage(driver);
-	}
-
 	@FindBy(id = "login_link")
 	WebElement loginRegisterBtn;
-
-	public LoginPage clickOnLoginRegisterBtn() {
-		click(loginRegisterBtn);
-		return new LoginPage(driver);
-	}
 
 	@FindBy(xpath = "//a[contains(text(),'Account')]")
 	WebElement accountBtn;
 
-	public ProfilePage clickOnAccountBtn() {
-		click(accountBtn);
-		return new ProfilePage(driver);
-	}
-
-	@FindBy(xpath="//div[@id='messages']/div/div")
+	@FindBy(xpath = "//div[@id='messages']/div/div")
 	WebElement homeMessageText;
-
-	public String getHomeMessagesText() {
-		return homeMessageText.getText();
-	}
 
 	@FindBy(id = "id_q")
 	WebElement searchField;
@@ -49,64 +30,82 @@ public class HomePage extends PageBase {
 	@FindBy(xpath = "//*[@id='default']/header/div[2]/div/div[2]/form/input")
 	WebElement searchBtn;
 
+	@FindBy(xpath = "//*[@id='default']/div[2]/div/div/div/div[1]/h1")
+	WebElement searchMessageText;
+
+	@FindBy(xpath = "//*[@id='browse']/li/ul/li[1]/a")
+	WebElement submenuAllProducts;
+
+	@FindBy(xpath = "//*[@id='promotions']/section[1]/div/h2")
+	WebElement homePageTitle;
+
+	@FindBy(xpath = "//*[@id='default']/header/div[1]/div/div[1]/a")
+	WebElement mainLink;
+
+	@FindBy(id = "login_form")
+	WebElement loginPageTitle;
+
+	@FindBy(xpath = "//*[@id='browse']/li/ul/li[3]/a")
+	WebElement submenuClothing;
+
+	@FindBy(xpath = "//*[@id='browse']/li/ul/li[6]/a")
+	WebElement submenuOffers;
+
+	public ProductPage selectCategoryBook() {
+		click(submenuBook);
+		return new ProductPage(driver);
+	}
+
+	public LoginPage clickOnLoginRegisterBtn() {
+		click(loginRegisterBtn);
+		return new LoginPage(driver);
+	}
+
+	public ProfilePage clickOnAccountBtn() {
+		click(accountBtn);
+		return new ProfilePage(driver);
+	}
+
+	public String getHomeMessagesText() {
+		return homeMessageText.getText();
+	}
+
 	public HomePage typeInSearchField(String text) {
 		type(searchField, text);
 		click(searchBtn);
 		return new HomePage(driver);
 	}
 
-	@FindBy(xpath="//*[@id='default']/div[2]/div/div/div/div[1]/h1")
-	WebElement searchMessageText;
-
 	public String getSearchMessagesText() {
 		return searchMessageText.getText();
 	}
-
-	@FindBy(xpath = "//*[@id='browse']/li/ul/li[1]/a")
-	WebElement submenuAllProducts;
 
 	public HomePage selectCategoryAllProducts() {
 		click(submenuAllProducts);
 		return new HomePage(driver);
 	}
 
-	@FindBy(xpath = "//*[@id='promotions']/section[1]/div/h2")
-	WebElement homePageTitle;
-
 	public boolean isItHomePage() {
 		return homePageTitle.isDisplayed();
 	}
-
-	@FindBy(xpath = "//*[@id='default']/header/div[1]/div/div[1]/a")
-	WebElement mainLink;
 
 	public HomePage clickOnMainLink() {
 		click(mainLink);
 		return new HomePage(driver);
 	}
 
-	@FindBy(id = "login_form")
-	WebElement loginPageTitle;
-
 	public boolean isItLoginAndRegisterPage() {
 		return loginPageTitle.isDisplayed();
 	}
-
-
-
-	@FindBy(xpath = "//*[@id='browse']/li/ul/li[3]/a")
-	WebElement submenuClothing;
 
 	public HomePage selectCategoryClothing() {
 		click(submenuClothing);
 		return new HomePage(driver);
 	}
 
-	@FindBy(xpath = "//*[@id='browse']/li/ul/li[6]/a")
-	WebElement submenuOffers;
-
 	public HomePage selectCategoryOffers() {
 		click(submenuOffers);
 		return new HomePage(driver);
 	}
+
 }

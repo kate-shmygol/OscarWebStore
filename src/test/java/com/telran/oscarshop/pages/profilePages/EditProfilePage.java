@@ -6,16 +6,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class EditProfilePage extends PageBase {
+
 	public EditProfilePage(WebDriver driver) {
 		super(driver);
 	}
 
-	@FindBy(xpath="//h1[contains(.,'Edit Profile')]")
+	@FindBy(xpath = "//h1[contains(.,'Edit Profile')]")
 	WebElement editProfileText;
-
-	public String getEditProfilePageText() {
-		return editProfileText.getText();
-	}
 
 	@FindBy(id = "id_first_name")
 	WebElement firstNameField;
@@ -26,8 +23,9 @@ public class EditProfilePage extends PageBase {
 	@FindBy(xpath = "//button[contains(.,'Save')]")
 	WebElement editProfileSaveBtn;
 
-	@FindBy(xpath = "//a[contains(.,'cancel')]")
-	WebElement editProfileCancelBtn;
+	public String getEditProfilePageText() {
+		return editProfileText.getText();
+	}
 
 	public EditProfilePage typeFirstAndLastNames(String firstName, String lastName) {
 		type(firstNameField, firstName);
@@ -35,4 +33,5 @@ public class EditProfilePage extends PageBase {
 		click(editProfileSaveBtn);
 		return new EditProfilePage(driver);
 	}
+
 }

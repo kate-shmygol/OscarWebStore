@@ -6,16 +6,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class DeleteProfilePage extends PageBase {
+
 	public DeleteProfilePage(WebDriver driver) {
 		super(driver);
 	}
 
-	@FindBy(xpath="//h1[contains(.,'Delete profile')]")
+	@FindBy(xpath = "//h1[contains(.,'Delete profile')]")
 	WebElement deleteProfileText;
-
-	public String getDeleteProfilePageText() {
-		return deleteProfileText.getText();
-	}
 
 	@FindBy(id = "id_password")
 	WebElement confirmPasswordField;
@@ -23,9 +20,14 @@ public class DeleteProfilePage extends PageBase {
 	@FindBy(xpath = "//button[contains(.,'Delete')]")
 	WebElement deleteBtn;
 
+	public String getDeleteProfilePageText() {
+		return deleteProfileText.getText();
+	}
+
 	public DeleteProfilePage typePasswordForDeletingProfile(String password) {
 		type(confirmPasswordField, password);
 		click(deleteBtn);
 		return new DeleteProfilePage(driver);
 	}
+
 }

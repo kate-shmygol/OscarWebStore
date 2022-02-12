@@ -6,16 +6,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class ChangePasswordPage extends PageBase {
+
 	public ChangePasswordPage(WebDriver driver) {
 		super(driver);
 	}
 
-	@FindBy(xpath="//h1[contains(.,'Change Password')]")
+	@FindBy(xpath = "//h1[contains(.,'Change Password')]")
 	WebElement changePasswordText;
-
-	public String getChangePasswordPageText() {
-		return changePasswordText.getText();
-	}
 
 	@FindBy(id = "id_old_password")
 	WebElement oldPasswordField;
@@ -29,8 +26,9 @@ public class ChangePasswordPage extends PageBase {
 	@FindBy(xpath = "//button[contains(.,'Save')]")
 	WebElement changePasswordSaveBtn;
 
-	@FindBy(xpath = "//a[contains(.,'cancel')]")
-	WebElement changePasswordCancelBtn;
+	public String getChangePasswordPageText() {
+		return changePasswordText.getText();
+	}
 
 	public ChangePasswordPage fillOldAndNewPasswords(String password, String newPassword) {
 		type(oldPasswordField, password);
@@ -39,4 +37,5 @@ public class ChangePasswordPage extends PageBase {
 		click(changePasswordSaveBtn);
 		return new ChangePasswordPage(driver);
 	}
+
 }

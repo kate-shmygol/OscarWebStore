@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class OrderPreviewPage extends PageBase {
+
 	public OrderPreviewPage(WebDriver driver) {
 		super(driver);
 	}
@@ -17,4 +18,5 @@ public class OrderPreviewPage extends PageBase {
 		click(placeOrderBtn);
 		return new OrderConfirmationPage(driver);
 	}
+
 }
